@@ -1,3 +1,3 @@
 # phpinfo
 
-![CI](https://github.com/secobau/phpinfo/workflows/CI/badge.svg?branch=docker)
+![CI](https://github.com/academiaonline/phpinfo/workflows/CI/badge.svg?branch=docker)
