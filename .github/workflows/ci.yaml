@@ -27,8 +27,13 @@ jobs:                                                                          #
         docker build -t $GITHUB_REPOSITORY:$release-testing --no-cache .       ;
                                                                                #
         docker run -d -p 8080:8080                                             \
-           --cpus "0.1" -m 100m --memory-reservation 100m                      \
-           --name test $GITHUB_REPOSITORY:$release-testing                     ;
+          --cpus "0.1" -m 100m --memory-reservation 100m                       \
+          --health-cmd "curl localhost:8080 | grep -q 'PHP.*phpinfo()' "       \
+          --health-interval=10s                                                \
+          --health-retries=3                                                   \
+          --health-start-period=30s                                            \
+          --health-timeout=1s                                                  \
+          --name test $GITHUB_REPOSITORY:$release-testing                      ;
                                                                                #
         while true                                                             ;
           do                                                                   \
