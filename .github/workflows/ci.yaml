@@ -24,7 +24,7 @@ jobs:                                                                          #
                                                                                #
         docker build -t $GITHUB_REPOSITORY:$release-testing --no-cache .       ;
                                                                                #
-        docker run -d -p 8080:8080                                             \
+        docker run -d -p 80:8080                                               \
           --cpus "0.1" -m 100m --memory-reservation 100m                       \
           --health-cmd "curl localhost:8080 | grep -q 'PHP.*phpinfo()' "       \
           --health-interval=10s                                                \
@@ -55,7 +55,7 @@ jobs:                                                                          #
         while true                                                             ;
           do                                                                   \
             sleep 10                                                           ;
-            curl localhost:8080                                                \
+            curl localhost                                                     \
             |                                                                  \
             grep "PHP.*phpinfo()"                                              \
             &&                                                                 \
@@ -93,6 +93,15 @@ jobs:                                                                          #
             docker service ls                                                  \
             |                                                                  \
             grep "$project.*replicated.*\([0-9]\)/\1.*8080"                    \
+            &&                                                                 \
+            break                                                              ;
+          done                                                                 ;
+        while true                                                             ;
+          do                                                                   \
+            sleep 10                                                           ;
+            curl localhost                                                     \
+            |                                                                  \
+            grep "PHP.*phpinfo()"                                              \
             &&                                                                 \
             break                                                              ;
           done                                                                 ;
