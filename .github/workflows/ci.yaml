@@ -45,6 +45,16 @@ jobs:                                                                          #
         while true                                                             ;
           do                                                                   \
             sleep 10                                                           ;
+            docker logs test                                                   \
+              2>& 1                                                            \
+            |                                                                  \
+            grep "PHP .* Development Server started"                           \
+            &&                                                                 \
+            break                                                              ;
+          done                                                                 ;
+        while true                                                             ;
+          do                                                                   \
+            sleep 10                                                           ;
             curl localhost:8080                                                \
             |                                                                  \
             grep "PHP.*phpinfo()"                                              \
