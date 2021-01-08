@@ -18,8 +18,7 @@ spec:
         app: phpinfo
     spec:
       containers:
-      -
-        name: phpinfo
+      - name: phpinfo
         image: academiaonline/phpinfo:latest
         imagePullPolicy: Always
         livenessProbe:
