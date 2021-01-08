@@ -18,7 +18,7 @@ services:
           cpus: "0.1"
           memory: 100M
     expose:
-    - 8080
+    - "8080"
     healthcheck:
       interval: 10s
       retries: 3
@@ -27,5 +27,5 @@ services:
       timeout: 1s
     image: academiaonline/phpinfo:latest
     ports:
-    - 80:8080
+    - "80:8080"
 version: "3.8"
