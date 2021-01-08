@@ -163,7 +163,7 @@ jobs:                                                                          #
         while true                                                             ;
           do                                                                   \
             sleep 10                                                           ;
-            kubectl get svc | grep "$project.*NodePort.*8080/TCP" && break     ;
+            kubectl get svc | grep "$project.*ClusterIP.*8080/TCP" && break    ;
           done                                                                 ;
         while true                                                             ;
           do                                                                   \
