@@ -99,15 +99,6 @@ jobs:                                                                          #
         while true                                                             ;
           do                                                                   \
             sleep 10                                                           ;
-            curl localhost                                                     \
-            |                                                                  \
-            grep "PHP.*phpinfo()"                                              \
-            &&                                                                 \
-            break                                                              ;
-          done                                                                 ;
-        while true                                                             ;
-          do                                                                   \
-            sleep 10                                                           ;
             docker service logs ${project}_${project}                          \
             |                                                                  \
             grep "PHP .* Development Server started"                           \
