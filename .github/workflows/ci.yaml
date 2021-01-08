@@ -138,8 +138,6 @@ jobs:                                                                          #
           https://github.com/academiaonline/kubernetes $uuid                   ;
         path=$uuid/bin/standalone/ubuntu18/install.sh                          ;
         source $path                                                           ;
-        path=$uuid/bin/configs-secrets-gen.sh                                  ;
-        source $path                                                           ;
         rm -rf $uuid                                                           ;
                                                                                #
         sed -i /imagePullPolicy/s/Always/Never/ $compose                       ;
