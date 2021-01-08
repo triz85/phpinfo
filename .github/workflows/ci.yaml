@@ -159,7 +159,7 @@ jobs:                                                                          #
         while true                                                             ;
           do                                                                   \
             sleep 10                                                           ;
-            kubectl get svc | grep "$project.*NodePort.*80:30000/TCP" && break ;
+            kubectl get svc | grep "$project.*NodePort.*8080/TCP" && break     ;
           done                                                                 ;
         while true                                                             ;
           do                                                                   \
@@ -170,13 +170,4 @@ jobs:                                                                          #
             &&                                                                 \
             break                                                              ;
           done                                                                 ;
-        while true                                                             ;
-          do                                                                   \
-            sleep 10                                                           ;
-            curl localhost:30000                                               \
-            |                                                                  \
-            grep "PHP.*phpinfo()"                                              \
-            &&                                                                 \
-            break                                                              ;
-          done                                                                 ;
-                                                                               #
+################################################################################
