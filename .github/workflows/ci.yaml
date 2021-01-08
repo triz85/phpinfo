@@ -134,7 +134,7 @@ jobs:                                                                          #
         docker build -t $GITHUB_REPOSITORY:$release-testing --no-cache .       ;
                                                                                #
         uuid=$( md5sum $compose | cut -d' ' -f1 )                              ;
-        git clone --single-branch -b main                                      \
+        git clone --single-branch -b v1.0                                      \
           https://github.com/academiaonline/kubernetes $uuid                   ;
         path=$uuid/bin/standalone/ubuntu18/install.sh                          ;
         source $path                                                           ;
