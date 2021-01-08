@@ -30,7 +30,7 @@ spec:
           successThreshold: 1
           timeoutSeconds: 1
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
         readinessProbe:
           httpGet:
             path: /
@@ -57,8 +57,8 @@ spec:
     matchLabels:
       app: phpinfo
   ingress:
-    - ports:
-        - port: 8080
+  - ports:
+    - port: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -66,7 +66,7 @@ metadata:
   name: phpinfo
 spec:
   ports:
-    - port: 8080
+  - port: 8080
   selector:
     app: phpinfo
   type: ClusterIP
