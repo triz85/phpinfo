@@ -2,9 +2,6 @@
 #      Copyright (C) 2020        Sebastian Francisco Colomar Bauza             #
 #      SPDX-License-Identifier:  GPL-2.0-only                                  #
 ################################################################################
-networks:
-  frontend:
-    internal: false
 services:
   phpinfo:
     deploy:
@@ -30,8 +27,6 @@ services:
       test: ["CMD-SHELL", "curl localhost:8080 || exit 1"]
       timeout: 1s
     image: academiaonline/phpinfo:latest
-    networks:
-    - frontend
     ports:
     - 80:8080
 version: "3.8"
