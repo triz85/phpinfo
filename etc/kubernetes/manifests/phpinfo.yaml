@@ -77,8 +77,9 @@ metadata:
 spec:
   ports:
   - port: 8080
+    nodePort:30000
     targetPort: 8080
   selector:
     app: phpinfo
-  type: ClusterIP
+  type: NodePort
 ---
