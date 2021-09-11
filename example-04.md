@@ -14,7 +14,7 @@ WORKDIR=/opt/
 CMD=" -f index.php -S 0.0.0.0:8080 "
 sudo docker run --detach --entrypoint ${ENTRYPOINT} --name ${NAME} --publish ${PUBLISH} --volume ${PWD}/${VOLUME}:${WORKDIR}:ro --workdir ${WORKDIR} ${IMAGE_REPOSITORY}:${IMAGE_TAG} ${CMD}
 ```
-FROM THE VM:
+RUN IN THE HOST MACHINE:
 ```
 curl localhost:80/phpinfo/src/index.php
 ```
