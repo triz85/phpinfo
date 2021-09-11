@@ -1,4 +1,4 @@
-CREATE THE CONTAINER FROM THAT IMAGE:
+CREATE THE CONTAINER FROM THE OFFICIAL DOCKERHUB IMAGE:
 ```
 test -d phpinfo && rm -rf phpinfo
 git clone https://github.com/academiaonline/phpinfo
@@ -8,11 +8,11 @@ IMAGE_REPOSITORY=library/php
 IMAGE_TAG=latest
 NAME=test
 PUBLISH=80:8080
-VOLUME=phpinfo/src
-WORKDIR=/tmp
+VOLUME=phpinfo/src/
+WORKDIR=/opt/
 
 CMD=" -f index.php -S 0.0.0.0:8080 "
-sudo docker run --detach --entrypoint ${ENTRYPOINT} --name ${NAME} --publish ${PUBLISH} --volume ${PWD}/${VOLUME}/:${WORKDIR}/:ro --workdir ${WORKDIR} ${IMAGE_REPOSITORY}:${IMAGE_TAG} ${CMD}
+sudo docker run --detach --entrypoint ${ENTRYPOINT} --name ${NAME} --publish ${PUBLISH} --volume ${PWD}/${VOLUME}:${WORKDIR}:ro --workdir ${WORKDIR} ${IMAGE_REPOSITORY}:${IMAGE_TAG} ${CMD}
 ```
 FROM THE VM:
 ```
